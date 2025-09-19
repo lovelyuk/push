@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍사스 홀덤 포커</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="table">
+      <header class="table__header">
+        <h1>텍사스 홀덤 포커</h1>
+        <p class="table__subtitle">
+          버튼을 눌러 카드를 공개하고 딜러와의 승부를 확인해 보세요.
+        </p>
+      </header>
+
+      <section class="status" aria-live="polite">
+        <div class="status__stage" id="stage-label">대기 중</div>
+        <div class="status__message" id="status-message">
+          게임 시작 버튼을 눌러주세요.
+        </div>
+      </section>
+
+      <section class="board" aria-label="커뮤니티 카드">
+        <h2>커뮤니티 카드</h2>
+        <div class="card-row" id="community-cards"></div>
+      </section>
+
+      <section class="players">
+        <article class="player player--main" aria-label="플레이어">
+          <header>
+            <h2>플레이어</h2>
+            <p class="player__info" id="player-info">패를 기다리는 중...</p>
+          </header>
+          <div class="card-row" id="player-cards"></div>
+        </article>
+
+        <article class="player player--dealer" aria-label="딜러">
+          <header>
+            <h2>딜러</h2>
+            <p class="player__info" id="dealer-info">쇼다운까지 비공개</p>
+          </header>
+          <div class="card-row" id="dealer-cards"></div>
+        </article>
+      </section>
+
+      <section class="controls">
+        <button id="action-button" class="controls__primary">게임 시작</button>
+        <button id="reset-button" class="controls__secondary">초기화</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        단순한 데모용 포커 게임입니다. 실제 베팅은 제공되지 않습니다.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
