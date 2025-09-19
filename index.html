@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>바둑 한판 - 웹 게임</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="app-title">
+      <header class="app__header">
+        <div class="app__title-block">
+          <h1 id="app-title">바둑 한판</h1>
+          <p class="app__subtitle">
+            브라우저에서 바로 즐기는 대국! 두 사람이 번갈아 수를 두고, 패스나 기권도
+            자유롭게 사용할 수 있습니다.
+          </p>
+        </div>
+        <div class="app__controls">
+          <label for="board-size" class="select-label">
+            바둑판 크기
+            <select id="board-size" class="board-size-select">
+              <option value="9">9 x 9</option>
+              <option value="13">13 x 13</option>
+              <option value="19" selected>19 x 19</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <section class="app__content">
+        <div class="board-panel">
+          <div
+            id="board"
+            class="board"
+            role="grid"
+            aria-label="바둑판"
+            aria-live="polite"
+          ></div>
+        </div>
+
+        <aside class="info-panel" aria-label="대국 정보">
+          <section class="status-card" aria-live="polite">
+            <h2 class="status-card__title">대국 현황</h2>
+            <dl class="status-list">
+              <div class="status-row">
+                <dt>현재 차례</dt>
+                <dd id="current-player">-</dd>
+              </div>
+              <div class="status-row">
+                <dt>흑이 딴 돌</dt>
+                <dd id="black-captures">0</dd>
+              </div>
+              <div class="status-row">
+                <dt>백이 딴 돌</dt>
+                <dd id="white-captures">0</dd>
+              </div>
+              <div class="status-row">
+                <dt>연속 패스</dt>
+                <dd id="pass-count">0</dd>
+              </div>
+              <div class="status-row">
+                <dt>최근 수</dt>
+                <dd id="last-move">없음</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="controls" aria-label="대국 제어">
+            <h2 class="controls__title">대국 진행</h2>
+            <div class="controls__grid">
+              <button id="pass-button" type="button" class="control-button">
+                패스
+              </button>
+              <button id="undo-button" type="button" class="control-button">
+                한 수 무르기
+              </button>
+              <button id="resign-button" type="button" class="control-button">
+                기권
+              </button>
+              <button id="reset-button" type="button" class="control-button control-button--accent">
+                새 게임
+              </button>
+            </div>
+          </section>
+
+          <section class="message-panel" aria-live="polite" role="status">
+            <h2 class="visually-hidden">알림</h2>
+            <p id="message" class="message">흑(●)부터 시작하세요!</p>
+          </section>
+
+          <section class="help-panel">
+            <h2 class="help-panel__title">도움말</h2>
+            <ul class="help-list">
+              <li>빈 교차점을 클릭하여 돌을 놓습니다.</li>
+              <li>자살수는 자동으로 막아주며, 기본 코(ko) 규칙이 적용됩니다.</li>
+              <li>양측이 연속으로 패스하면 대국이 종료됩니다.</li>
+              <li>"한 수 무르기"를 눌러 직전 상황으로 되돌릴 수 있습니다.</li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
